@@ -1,4 +1,4 @@
-module utils
+module gitea.com/huangxuantao89/utils
 
 go 1.14
 
