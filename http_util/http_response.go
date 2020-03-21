@@ -76,3 +76,12 @@ func NormalResponseHtml(c *gin.Context, template string, err *errno_util.Errno, 
 	c.Set("custom_code", err.Code)
 	c.HTML(http.StatusOK, template, data)
 }
+
+func NormalResponseJsonForBaccarat(c *gin.Context, data interface{}) {
+	c.Writer.Header().Set("Access-Control-Allow-Credentials", "true")
+	c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
+	c.Writer.Header().Set("Cache-Control", "no-cache, private")
+	c.Writer.Header().Set("Connection", "keep-alive")
+
+	c.JSON(http.StatusOK, data)
+}
