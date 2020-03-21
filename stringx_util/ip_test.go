@@ -2,7 +2,7 @@ package stringx_util
 
 import (
 	"fmt"
-	"github.com/Unknwon/com"
+	"github.com/unknwon/com"
 	"math/big"
 	"testing"
 )

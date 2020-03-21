@@ -9,7 +9,7 @@ import (
 	"net/http"
 	"strconv"
 	"time"
-	"veryon/utils/errno_util"
+	"utils/errno_util"
 )
 
 const (

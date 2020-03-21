@@ -3,8 +3,8 @@ package dal_util
 import (
 	"fmt"
 	"github.com/go-redis/redis"
-	"veryon/utils/encrypt_util"
-	"veryon/utils/log_util"
+	"utils/encrypt_util"
+	"utils/log_util"
 )
 
 type RedisConfig struct {

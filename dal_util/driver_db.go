@@ -5,8 +5,8 @@ import (
 	"gitea.com/huangxuantao89/xorm"
 	_ "github.com/go-sql-driver/mysql"
 	_ "github.com/lib/pq"
-	"veryon/utils/encrypt_util"
-	"veryon/utils/log_util"
+	"utils/encrypt_util"
+	"utils/log_util"
 
 	// _ "github.com/mattn/go-sqlite3"
 )

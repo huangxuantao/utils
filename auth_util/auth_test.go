@@ -4,7 +4,7 @@ import (
 	"github.com/dgrijalva/jwt-go"
 	"testing"
 	"time"
-	"veryon/utils/time_util"
+	"utils/time_util"
 )
 
 func getClaims() CustomClaims {

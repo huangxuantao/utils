@@ -3,7 +3,7 @@ package http_util
 import (
 	"github.com/gin-gonic/gin"
 	"net/http"
-	"veryon/utils/errno_util"
+	"utils/errno_util"
 )
 
 type ResponseJson struct {

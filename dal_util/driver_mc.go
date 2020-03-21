@@ -3,7 +3,7 @@ package dal_util
 import (
 	"fmt"
 	"github.com/bradfitz/gomemcache/memcache"
-	"veryon/utils/log_util"
+	"utils/log_util"
 )
 
 type MemcacheConfig struct {
