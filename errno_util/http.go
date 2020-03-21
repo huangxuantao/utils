@@ -20,6 +20,8 @@ var (
 	AuthTokenIllegal     = &Errno{Code: 403, Message: "您无权限进行此操作"}
 	AuthNotAllowedLogin  = &Errno{Code: 403, Message: "您无权限登录此系统"}
 
+	AuthCanNotGetToken = &Errno{Code: 20102, Message: "获取Token失败"}
+
 	JsonMarshal = &Errno{Code: 20201, Message: "Json Marshal失败"}
 
 	WebsocketUpgrade = &Errno{Code: 20301, Message: "Http update to WebSocket Failed"}
