@@ -1,9 +1,9 @@
 package http_util
 
 import (
+	"gitea.com/huangxuantao89/utils/errno_util"
 	"github.com/gin-gonic/gin"
 	"net/http"
-	"utils/errno_util"
 )
 
 type ResponseJson struct {
@@ -18,7 +18,7 @@ type ResponseData struct {
 }
 
 type ResponseToken struct {
-	Token       interface{} `json:"token"`
+	Token interface{} `json:"token"`
 }
 
 func NormalResponseJson(c *gin.Context, err *errno_util.Errno, data interface{}) {

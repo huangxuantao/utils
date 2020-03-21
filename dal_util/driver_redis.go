@@ -2,9 +2,9 @@ package dal_util
 
 import (
 	"fmt"
+	"gitea.com/huangxuantao89/utils/encrypt_util"
+	"gitea.com/huangxuantao89/utils/log_util"
 	"github.com/go-redis/redis"
-	"utils/encrypt_util"
-	"utils/log_util"
 )
 
 type RedisConfig struct {

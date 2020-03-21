@@ -2,8 +2,8 @@ package dal_util
 
 import (
 	"fmt"
+	"gitea.com/huangxuantao89/utils/log_util"
 	"github.com/bradfitz/gomemcache/memcache"
-	"utils/log_util"
 )
 
 type MemcacheConfig struct {

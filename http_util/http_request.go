@@ -2,6 +2,7 @@ package http_util
 
 import (
 	"fmt"
+	"gitea.com/huangxuantao89/utils/errno_util"
 	"github.com/gin-gonic/gin"
 	"github.com/json-iterator/go"
 	"github.com/pkg/errors"
@@ -9,7 +10,6 @@ import (
 	"net/http"
 	"strconv"
 	"time"
-	"utils/errno_util"
 )
 
 const (

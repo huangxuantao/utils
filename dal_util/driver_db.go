@@ -2,11 +2,11 @@ package dal_util
 
 import (
 	"fmt"
+	"gitea.com/huangxuantao89/utils/encrypt_util"
+	"gitea.com/huangxuantao89/utils/log_util"
 	"gitea.com/huangxuantao89/xorm"
 	_ "github.com/go-sql-driver/mysql"
 	_ "github.com/lib/pq"
-	"utils/encrypt_util"
-	"utils/log_util"
 
 	// _ "github.com/mattn/go-sqlite3"
 )
