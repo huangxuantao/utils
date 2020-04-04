@@ -15,10 +15,11 @@ require (
 	github.com/kjk/dailyrotate v0.0.0-20191009232928-ae3b0facf5a6
 	github.com/lib/pq v1.3.0
 	github.com/op/go-logging v0.0.0-20160315200505-970db520ece7
-	github.com/pkg/errors v0.8.0
+	github.com/pkg/errors v0.9.1
 	github.com/skip2/go-qrcode v0.0.0-20191027152451-9434209cb086
 	github.com/streadway/amqp v0.0.0-20200108173154-1c71cc93ed71 // indirect
 	github.com/tuotoo/qrcode v0.0.0-20190222102259-ac9c44189bf2
 	github.com/unknwon/com v1.0.1
 	github.com/valyala/fasthttp v1.9.0
+	golang.org/x/crypto v0.0.0-20200403201458-baeed622b8d8 // indirect
 )
