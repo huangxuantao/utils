@@ -16,11 +16,16 @@ var (
 	ExpireTime = 7 * 24 * time.Hour
 )
 
+type Info struct {
+	ID       string   `json:"id"`       // ID标识
+	Username string   `json:"username"` // 客户端名称
+	IP       string   `json:"ip"`       // 客户端申请token时的IP地址
+	Sub      []string `json:"sub"`      // 客户端允许访问的资源 先不判断允许访问的资源
+	NowTime  string   `json:"now_time"`
+}
+
 type CustomClaims struct {
-	Username string `json:"username"` // 客户端名称
-	NowTime  string `json:"now_time"`
-	// IP   string `json:"ip"`   // 客户端申请token时的IP地址
-	// Sub  []string `json:"sub"`  // 客户端允许访问的资源 先不判断允许访问的资源
+	Info
 	jwt.StandardClaims
 }
 
@@ -87,4 +92,13 @@ func GetUsername(tokenString string) (string, error) {
 		return "", err
 	}
 	return claims.Username, nil
+}
+
+func GetInfo(tokenString string) (*Info, error) {
+	authJWT := NewJWT()
+	claims, err := authJWT.ParseToken(tokenString)
+	if err != nil {
+		return nil, err
+	}
+	return &claims.Info, nil
 }
