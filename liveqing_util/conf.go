@@ -1,16 +1,20 @@
 package liveqing_util
 
+import "gitea.com/huangxuantao89/utils/http_util"
+
+type Config struct {
+	http_util.ServerConfig
+	MaxChannels int
+	Username    string
+	Password    string
+}
+
 type LiveQingHeader struct {
 	CSeq        string `json:"CSeq"`
 	Version     string `json:"Version"`
 	MessageType string `json:"MessageType"`
 	ErrorNum    string `json:"ErrorNum"`
 	ErrorString string `json:"ErrorString"`
-}
-
-type LoginReqVO struct {
-	Username string `json:"username"`
-	Password string `json:"password"`
 }
 
 type LoginRespVO struct {

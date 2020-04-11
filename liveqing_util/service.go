@@ -23,17 +23,17 @@ const (
 )
 
 type liveQingService struct {
-	Conf http_util.ServerConfig
+	Conf Config
 }
 
 func GetLiveQingService() *liveQingService {
 	return &liveQingService{}
 }
 
-func (d *liveQingService) Login(reqVO LoginReqVO) (string, error) {
-	client := http_util.Client(&d.Conf)
+func (d *liveQingService) Login() (string, error) {
+	client := http_util.Client(&d.Conf.ServerConfig)
 	defer client.Close()
-	client.SetRequestURI(fmt.Sprintf("%s?username=%s&password=%s", uriLogin, reqVO.Username, reqVO.Password))
+	client.SetRequestURI(fmt.Sprintf("%s?username=%s&password=%s", uriLogin, d.Conf.Username, d.Conf.Password))
 
 	body, err := client.GetWithoutFormat()
 	if err != nil {
@@ -49,7 +49,7 @@ func (d *liveQingService) Login(reqVO LoginReqVO) (string, error) {
 }
 
 func (d *liveQingService) GetChannelsConfig(token string) (*GetChannelsConfigRespVO, error) {
-	client := http_util.Client(&d.Conf)
+	client := http_util.Client(&d.Conf.ServerConfig)
 	defer client.Close()
 	client.Request.Header.SetCookie("token", token)
 	client.SetRequestURI(uriGetChannelsConfig)
@@ -67,7 +67,7 @@ func (d *liveQingService) GetChannelsConfig(token string) (*GetChannelsConfigRes
 }
 
 func (d *liveQingService) SetChannelConfig(reqVO SetChannelConfigReqVO, token string) error {
-	client := http_util.Client(&d.Conf)
+	client := http_util.Client(&d.Conf.ServerConfig)
 	defer client.Close()
 	client.Request.Header.SetCookie("token", token)
 	client.SetRequestURI(fmt.Sprintf("%s?Channel=%d&Enable=%d&OnDemand=%d&Name=%s&Rtsp=%s&Audio=%d&Record=%d&Transport=%s&Protocol=%s",
