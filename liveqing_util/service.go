@@ -7,6 +7,16 @@ import (
 )
 
 const (
+	ChannelEnable        = 1 // 通道开
+	ChannelDisable       = 0 // 通道关
+	ChannelOnDemandOn    = 1 // 按需直播开
+	ChannelOnDemandOff   = 0 // 按需直播关
+	ChannelProtocolRTSP  = "RTSP"
+	ChannelProtocolONVIF = "ONVIF"
+	ChannelAudioOn       = 1
+	ChannelAudioOff      = 0
+	ChannelRecordOff     = 0
+
 	uriLogin             = "/api/v1/login"
 	uriGetChannelsConfig = "/api/v1/getchannelsconfig"
 	uriSetChannelConfig  = "/api/v1/setchannelconfig"
