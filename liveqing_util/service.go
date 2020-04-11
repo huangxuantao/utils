@@ -71,9 +71,19 @@ func (d *liveQingService) SetChannelConfig(reqVO SetChannelConfigReqVO, token st
 	client := http_util.Client(&d.Conf.ServerConfig)
 	defer client.Close()
 	client.Request.Header.SetCookie("token", token)
-	client.SetRequestURI(fmt.Sprintf("%s?Channel=%d&Enable=%d&OnDemand=%d&Name=%s&Rtsp=%s&Audio=%d&Record=%d&Transport=%s&Protocol=%s",
-		uriSetChannelConfig, reqVO.Channel, reqVO.Enable, reqVO.OnDemand, reqVO.Name, reqVO.RTSP, reqVO.Audio, reqVO.Record, reqVO.Transport, reqVO.Protocol))
-
+	client.SetRequestURI(fmt.Sprintf("%s?Channel=%d&Enable=%d&OnDemand=%d&Name=%s&Rtsp=%s&Audio=%d&Record=%d&Transport=%s&Protocol=%s&Cdn=%s",
+		uriSetChannelConfig,
+		reqVO.Channel,
+		reqVO.Enable,
+		reqVO.OnDemand,
+		reqVO.Name,
+		reqVO.RTSP,
+		reqVO.Audio,
+		reqVO.Record,
+		reqVO.Transport,
+		reqVO.Protocol,
+		reqVO.CDN))
+	
 	body, err := client.GetWithoutFormat()
 	if err != nil {
 		return err
