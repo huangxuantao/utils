@@ -31,8 +31,8 @@ func GetUserName(c *gin.Context) (string, error) {
 }
 
 func GetPageInfo(c *gin.Context) (int, int) {
-	rawPageIndex := c.DefaultQuery("page", "1")
-	rawPageSize := c.DefaultQuery("limit", "20")
+	rawPageIndex := c.DefaultQuery("page_index", "1")
+	rawPageSize := c.DefaultQuery("page_size", "20")
 	pageIndex, err1 := strconv.Atoi(rawPageIndex)
 	pageSize, err2 := strconv.Atoi(rawPageSize)
 	if err1 != nil || err2 != nil {
@@ -124,10 +124,7 @@ func (c *HttpClient) request() ([]byte, error) {
 		if result.Code >= http.StatusBadRequest {
 			return nil, errors.New(fmt.Sprintf("bad request with message:%s, code:%d, data:%v", result.Message, result.Code, result.Data))
 		}
-		if result.Data == nil {
-			return nil, errno_util.HttpNoResultData
-		}
-		if body, err := jsonIter.Marshal(result.Data); err != nil {
+		if body, err := jsonIter.Marshal(result); err != nil {
 			return nil, err
 		} else {
 			return body, nil
