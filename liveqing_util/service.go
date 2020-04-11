@@ -16,6 +16,7 @@ const (
 	ChannelAudioOn       = 1
 	ChannelAudioOff      = 0
 	ChannelRecordOff     = 0
+	ChannelTransportTCP  = "TCP"
 
 	uriLogin             = "/api/v1/login"
 	uriGetChannelsConfig = "/api/v1/getchannelsconfig"
