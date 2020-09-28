@@ -2,8 +2,8 @@ package dal_util
 
 import (
 	"fmt"
-	"gitea.com/huangxuantao89/utils/encrypt_util"
-	"gitea.com/huangxuantao89/utils/log_util"
+	"github.com/huangxuantao/utils/encrypt_util"
+	"github.com/huangxuantao/utils/log_util"
 	"github.com/go-redis/redis"
 )
 

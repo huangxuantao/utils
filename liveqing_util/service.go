@@ -3,7 +3,7 @@ package liveqing_util
 import (
 	"encoding/json"
 	"fmt"
-	"gitea.com/huangxuantao89/utils/http_util"
+	"github.com/huangxuantao/utils/http_util"
 )
 
 const (

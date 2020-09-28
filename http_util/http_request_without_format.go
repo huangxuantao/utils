@@ -2,7 +2,7 @@ package http_util
 
 import (
 	"fmt"
-	"gitea.com/huangxuantao89/utils/errno_util"
+	"github.com/huangxuantao/utils/errno_util"
 	"github.com/pkg/errors"
 	"github.com/valyala/fasthttp"
 	"net/http"

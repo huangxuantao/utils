@@ -1,7 +1,7 @@
 package auth_util
 
 import (
-	"gitea.com/huangxuantao89/utils/time_util"
+	"github.com/huangxuantao/utils/time_util"
 	"github.com/dgrijalva/jwt-go"
 	"testing"
 	"time"

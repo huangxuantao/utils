@@ -1,7 +1,7 @@
 package http_util
 
 import (
-	"gitea.com/huangxuantao89/utils/errno_util"
+	"github.com/huangxuantao/utils/errno_util"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )

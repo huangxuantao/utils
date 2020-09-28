@@ -1,6 +1,6 @@
 package liveqing_util
 
-import "gitea.com/huangxuantao89/utils/http_util"
+import "github.com/huangxuantao/utils/http_util"
 
 type Config struct {
 	http_util.ServerConfig
