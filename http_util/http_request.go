@@ -2,8 +2,8 @@ package http_util
 
 import (
 	"fmt"
-	"github.com/huangxuantao/utils/errno_util"
 	"github.com/gin-gonic/gin"
+	"github.com/huangxuantao/utils/errno_util"
 	"github.com/json-iterator/go"
 	"github.com/pkg/errors"
 	"github.com/valyala/fasthttp"
@@ -73,6 +73,14 @@ func (c *HttpClient) Close() {
 
 func (c *HttpClient) SetRequestURI(uri string) {
 	c.Request.SetRequestURI(uri)
+}
+
+func (c *HttpClient) SetHeaderByGinContext(ctx *gin.Context) {
+	for k, v := range ctx.Request.Header {
+		if v != nil {
+			c.Request.Header.Add(k, v[0])
+		}
+	}
 }
 
 func (c *HttpClient) requestResult() (*ResponseJson, error) {
