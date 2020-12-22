@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/huangxuantao/utils/http_util"
+	"net/url"
 )
 
 const (
@@ -77,7 +78,7 @@ func (d *liveQingService) SetChannelConfig(reqVO SetChannelConfigReqVO, token st
 		reqVO.Enable,
 		reqVO.OnDemand,
 		reqVO.Name,
-		reqVO.RTSP,
+		url.QueryEscape(reqVO.RTSP),
 		reqVO.Audio,
 		reqVO.Record,
 		reqVO.Transport,
