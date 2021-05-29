@@ -5,7 +5,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/huangxuantao/utils/encrypt_util"
 	"github.com/huangxuantao/utils/log_util"
-	"github.com/huangxuantao/xorm"
+	"github.com/huangxuantao/xorm-v1"
 	_ "github.com/lib/pq"
 
 	// _ "github.com/mattn/go-sqlite3"
