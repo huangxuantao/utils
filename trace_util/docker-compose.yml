@@ -1,0 +1,62 @@
+version: '3'
+networks:
+  jaeger:
+
+services:
+  collector:
+    image: jaegertracing/jaeger-collector:1.21
+    container_name: jaeger-collector
+    restart: always
+    extra_hosts:
+      - "xxx.com:1.1.1.1"
+    environment:
+      - SPAN_STORAGE_TYPE=elasticsearch
+    command: [
+      "--es.server-urls=http://xxx.com:9200",
+      "--es.username=elastic",
+      "--es.password=xxx",
+      "--log-level=debug"
+    ]
+    networks:
+      - jaeger
+    ports:
+    - "14269"
+    - "14268:14268"
+    - "14267"
+    - "14250:14250"
+    - "9411:9411"
+
+  agent:
+    image: jaegertracing/jaeger-agent:1.21
+    container_name: jaeger-agent
+    restart: always
+    extra_hosts:
+      - "xxx.com:1.1.1.1"
+    environment:
+      - REPORTER_GRPC_HOST_PORT=collector:14250
+    ports:
+    - "5775:5775/udp"
+    - "5778:5778"
+    - "6831:6831/udp"
+    - "6832:6832/udp"
+    networks:
+      - jaeger
+    depends_on:
+      - collector
+
+  query:
+    image: jaegertracing/jaeger-query:1.21
+    container_name: jaeger-query
+    restart: always
+    extra_hosts:
+      - "xxx.com:1.1.1.1"
+    command: [
+        "--es.server-urls=http://xxx.com:9200",
+        "--es.username=elastic",
+        "--es.password=xxx",
+        "--log-level=debug"
+    ]
+    ports:
+    - "16686:16686"
+    networks:
+      - jaeger
